@@ -22,31 +22,21 @@ public class Main {
                 100000, 23, LocalDate.of(2001, 1,1)));
 
         System.out.println(employees);
-        ProductManager.increaseSalary(employees, 10000);
+        ProductManager.increaseSalaryWithoutDirector(employees, 10000);
         System.out.println(employees);
-
-
-
-
-
-
-
-
-    }
-
-    public static void increaseSalary(List<Employee> employees) {
-        employees.stream().filter(i -> i.getAge() > 45).forEach(i -> i.setSalary(i.getSalary() + 5000));
-    }
-
-    public static void increaseSalary(List<Employee> employees, double amount, int age) {
-        employees.stream().filter(i -> i.getAge() > age).forEach(i -> i.setSalary(i.getSalary() + amount));
     }
 
     public static double averageSalary (List<Employee> employees){
-        return employees.stream().mapToDouble(Employee::getSalary).average().orElse(0);
+        return employees.stream()
+                .mapToDouble(Employee::getSalary)
+                .average()
+                .orElse(0);
     }
 
     public static int averageAge (List<Employee>employees){
-        return (int) employees.stream().mapToInt(Employee::getAge).average().orElse(0);
+        return (int) employees.stream()
+                .mapToInt(Employee::getAge)
+                .average()
+                .orElse(0);
     }
 }

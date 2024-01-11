@@ -3,6 +3,13 @@ package ru.serjeypyzin.company;
 import java.time.LocalDate;
 import java.util.List;
 
+
+/*
+* Опишите класс руководителя, наследник от сотрудника. Перенесите статический метод повышения зарплаты в класс руководителя,
+* модифицируйте метод таким образом, чтобы он мог поднять заработную плату всем, кроме руководителей.
+* В основной программе создайте руководителя и поместите его в общий массив сотрудников.
+* Повысьте зарплату всем сотрудникам и проследите, чтобы зарплата руководителя не повысилась.
+* */
 public class ProductManager extends Employee{
     public ProductManager(String fullName, String post, String phone, double salary, int age, LocalDate birthDate) {
         super(fullName, post, phone, salary, age, birthDate);
@@ -78,7 +85,21 @@ public class ProductManager extends Employee{
         return super.compareTo(o);
     }
 
-    public static void increaseSalary(List<Employee> employees, int amount) {
-        employees.stream().filter(i -> !(i instanceof ProductManager)).forEach(i -> i.setSalary(i.getSalary() + amount));
+    public static void increaseSalaryWithoutDirector(List<Employee> employees, int amount) {
+        employees.stream()
+                .filter(i -> !(i instanceof ProductManager))
+                .forEach(i -> i.setSalary(i.getSalary() + amount));
+    }
+
+    public static void increaseSalary(List<Employee> employees) {
+        employees.stream()
+                .filter(i -> i.getAge() > 45)
+                .forEach(i -> i.setSalary(i.getSalary() + 5000));
+    }
+
+    public static void increaseSalary(List<Employee> employees, double amount, int age) {
+        employees.stream()
+                .filter(i -> i.getAge() > age)
+                .forEach(i -> i.setSalary(i.getSalary() + amount));
     }
 }

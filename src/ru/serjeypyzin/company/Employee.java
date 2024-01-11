@@ -2,8 +2,11 @@ package ru.serjeypyzin.company;
 
 import java.time.LocalDate;
 
-// Создать класс ”Сотрудник” с полями: ФИО, должность, телефон,
-//зарплата, возраст;
+
+/*
+* Написать прототип компаратора - метод внутри класса сотрудника, сравнивающий две даты,
+*  представленные в виде трёх чисел гггг-мм-дд, без использования условного оператора.
+* */
 public class Employee implements Comparable<Employee>{
     private String fullName;
     private String post;
