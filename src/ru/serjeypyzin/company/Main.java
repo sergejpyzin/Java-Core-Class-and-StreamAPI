@@ -2,6 +2,7 @@ package ru.serjeypyzin.company;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -23,6 +24,9 @@ public class Main {
 
         System.out.println(employees);
         ProductManager.increaseSalaryWithoutDirector(employees, 10000);
+        System.out.println(employees);
+
+        Collections.sort(employees);
         System.out.println(employees);
     }
 

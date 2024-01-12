@@ -1,6 +1,7 @@
 package ru.serjeypyzin.educationalinstitution;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -46,6 +47,8 @@ public class Main {
         students.add(student12);
 
         System.out.println(getStudentListInAverageGrades(students, "Информатика", 4.5));
+
+
 
 
 
